@@ -1,0 +1,15 @@
+{
+  "name": "startgg-server-express",
+  "version": "1.0.0",
+  "description": "A backend for startgg, personal homepage.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Simonas Karalius",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
