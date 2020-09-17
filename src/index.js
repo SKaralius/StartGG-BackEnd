@@ -30,7 +30,7 @@ async function getData() {
 }
 // Gets data every 59th minute
 // In other words, once an hour.
-cron.schedule("* * * * *", () => {
+cron.schedule("59 * * * *", () => {
   console.log("Refreshing data");
   getData();
 });
