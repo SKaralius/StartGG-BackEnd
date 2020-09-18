@@ -11,9 +11,24 @@ export default async function getTrendingYoutube() {
     maxResults: 50,
     key: process.env.YOUTUBE_API_KEY,
   });
+  const response2 = await googleService.videos.list({
+    part: "snippet, contentDetails",
+    chart: "mostPopular",
+    regionCode: "US",
+    maxResults: 50,
+    key: process.env.YOUTUBE_API_KEY,
+    pageToken: response.data.nextPageToken,
+  });
   // Removes unnecessary information
+
+  const data1 = cutItems(response.data.items);
+  const data2 = cutItems(response2.data.items);
+  return [...data1, ...data2];
+}
+
+function cutItems(items) {
   const videos = [];
-  response.data.items.forEach((item) => {
+  items.forEach((item) => {
     const videoItem = {};
     videoItem.id = item.id;
     videoItem.snippet = {

@@ -18,10 +18,11 @@ async function getData() {
   // Returns array with 100 posts
   const redditData = await getTrendingReddit();
 
-  const paginatedArray = paginateArray(redditData);
+  const paginatedRedditArray = paginateArray(redditData);
+  const paginatedYoutubeArray = paginateArray(youtubeData);
 
   //  // Returns null when trying to retrieve key from cache refereces? scope?
-  //   paginatedArray.forEach((page, index) => {
+  //   paginatedRedditArray.forEach((page, index) => {
   //     cacheObjects.push({
   //       key: `reddit-${index}`,
   //       value: "hello world",
@@ -31,11 +32,14 @@ async function getData() {
   // No TTL for cache, because data should only expire
   // When it is replaced by cron
   cache.mset([
-    { key: "reddit-0", val: paginatedArray[0] },
-    { key: "reddit-1", val: paginatedArray[1] },
-    { key: "reddit-2", val: paginatedArray[2] },
-    { key: "reddit-3", val: paginatedArray[3] },
-    { key: "youtube", val: youtubeData },
+    { key: "reddit-0", val: paginatedRedditArray[0] },
+    { key: "reddit-1", val: paginatedRedditArray[1] },
+    { key: "reddit-2", val: paginatedRedditArray[2] },
+    { key: "reddit-3", val: paginatedRedditArray[3] },
+    { key: "youtube-0", val: paginatedYoutubeArray[0] },
+    { key: "youtube-1", val: paginatedYoutubeArray[1] },
+    { key: "youtube-2", val: paginatedYoutubeArray[2] },
+    { key: "youtube-3", val: paginatedYoutubeArray[3] },
   ]);
 }
 

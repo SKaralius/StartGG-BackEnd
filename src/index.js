@@ -31,10 +31,11 @@ app.get("/reddit/:pageNumber", (req, res) => {
   const data = cache.get(`reddit-${req.params.pageNumber}`);
   res.json(data);
 });
-app.get("/youtube", (req, res) => {
+app.get("/youtube/:pageNumber", (req, res) => {
   res.statusCode = 200;
   res.set("Cache-Control", "public, max-age=3600");
-  res.json(cache.get("youtube"));
+  const data = cache.get(`youtube-${req.params.pageNumber}`);
+  res.json(data);
 });
 
 app.listen(port, () => {
