@@ -8,7 +8,7 @@ export default async function getTrendingYoutube() {
     part: "snippet, contentDetails",
     chart: "mostPopular",
     regionCode: "US",
-    maxResults: 25,
+    maxResults: 50,
     key: process.env.YOUTUBE_API_KEY,
   });
   // Removes unnecessary information
