@@ -4,8 +4,8 @@
   "description": "A backend for startgg, personal homepage.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --legacy-watch -r dotenv/config src/index.js",
-    "startNode": "node -r dotenv/config src/index.js"
+    "start": "node -r dotenv/config src/index.js",
+    "startDev": "nodemon --legacy-watch -r dotenv/config src/index.js"
   },
   "author": "Simonas Karalius",
   "license": "MIT",
