@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { initCache, getFromCache } from "./cache.js";
+import "./cron.js";
 
 const app = express();
 app.use(
