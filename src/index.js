@@ -5,7 +5,7 @@ import { initCache, getFromCache } from "./cache.js";
 const app = express();
 app.use(
   cors({
-    origin: `http://${process.env.FRONT_END_HOST}:${process.env.FRONT_END_PORT}`,
+    origin: process.env.CORS_ORIGIN,
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   })
 );
