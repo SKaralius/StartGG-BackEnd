@@ -2,7 +2,9 @@ import fetch from "node-fetch";
 
 export default async function getTrendingReddit() {
   console.log("request to reddit");
-  const first100 = await fetch("https://www.reddit.com/r/all/.json?limit=100");
+  const first100 = await fetch(
+    "https://www.reddit.com/r/popular/.json?limit=100"
+  );
   const dataFirst100 = await first100.json();
   const first100posts = dataFirst100.data.children;
 
